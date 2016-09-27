@@ -10,25 +10,15 @@ build:
         code: cp *sh "$WERCKER_OUTPUT_DIR"
 
 test:
-  box: ubuntu:16.04
+  box: docker
   steps:
 
     # copy script to a location that gets passed along to next pipelines
     - script:
         name: run_all
         code: |
-          sudo apt-get update
-          sudo apt-get install -y apt-transport-https ca-certificates
-          sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-          echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" > /etc/apt/sources.list.d/docker.list
-          sudo apt-get update
-          sudo apt-get install -y docker-engine
-          sudo service docker start
-          sleep 10 && sudo service docker status
-          sudo ps aux | grep docker
-          sudo /usr/bin/docker -d
-          sudo docker run hello-world
-          sudo ./run.sh
+          docker run hello-world
+          ./run.sh
 
 
 # ---------------------------------- debian 8 jessie -----------------------------------------------
