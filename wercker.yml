@@ -1,5 +1,5 @@
 # build python 2.7 by default
-box: wercker/ubuntu
+box: python:2.7
 
 build:
   steps:
