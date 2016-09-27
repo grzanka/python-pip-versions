@@ -54,120 +54,24 @@ debian-testing-py3:
           ./discover.sh py3
 
 
-# ---------------------------------- Ubuntu 16.04 -----------------------------------------------
+# ---------------------------------- debian stable -----------------------------------------------
 
-test_ubuntu_1604_py2:
-  box: ubuntu:16.04
-
-  steps:
-
-    - script:
-        name: prerequisites
-        code: |
-          sudo apt-get update
-          sudo apt-get install -qq -y --no-install-recommends python-pip python-pkg-resources  wget
-          python -V
-          pip -V
-
-
-test_ubuntu_1604_py3:
-  box: ubuntu:16.04
+debian-stable-py2:
+  box: debian:stable
 
   steps:
     - script:
         name: prerequisites
         code: |
-          sudo apt-get update
-          sudo apt-get install -qq -y --no-install-recommends python3-pip python3-pkg-resources wget
-          python3 -V
-          pip3 -V
+          ./discover.sh py2
 
 
-# ---------------------------------- Ubuntu 14.04 -----------------------------------------------
-
-test_ubuntu_1404_py2:
-  box: ubuntu:14.04
-
-  steps:
-
-    - script:
-        name: prerequisites
-        code: |
-          sudo apt-get update
-          sudo apt-get install -qq -y --no-install-recommends python-pip python-pkg-resources wget
-          python -V
-          pip -V
-
-
-test_ubuntu_1404_py3:
-  box: ubuntu:14.04
+debian-stable-py3:
+  box: debian:stable
 
   steps:
     - script:
         name: prerequisites
         code: |
-          sudo apt-get update
-          sudo apt-get install -qq -y --no-install-recommends python3-pip wget
-          python3 -V
-          pip3 -V
+          ./discover.sh py3
 
-# ---------------------------------- Centos 7 -----------------------------------------------
-
-test_centos_7_py2:
-  box: centos:7
-
-  steps:
-
-    - script:
-        name: prerequisites
-        code: |
-          sudo yum update -y -q
-          sudo yum install -q -y python wget
-          python -V
-          wget https://bootstrap.pypa.io/get-pip.py
-          python get-pip.py
-          pip -V
-
-
-test_centos_7_py3:
-  box: centos:7
-
-  steps:
-    - script:
-        name: prerequisites
-        code: |
-          sudo yum update -y -q
-          sudo yum install -q -y python3 wget
-          python -V
-          wget https://bootstrap.pypa.io/get-pip.py
-          python get-pip.py
-          pip -V
-
-
-# ---------------------------------- Centos 7 -----------------------------------------------
-
-test_fedora_24_py2:
-  box: fedora:24
-
-  steps:
-
-    - script:
-        name: prerequisites
-        code: |
-          sudo dnf update -y -q
-          sudo dnf install -q -y python-pip wget
-          python -V
-          pip -V
-
-
-test_fedora_24_py3:
-  box: fedora:24
-
-  steps:
-    - script:
-        name: prerequisites
-        code: |
-          sudo dnf update -y -q
-          sudo dnf install -q -y python3-pip wget
-          python3 -V
-          pip3 -V
