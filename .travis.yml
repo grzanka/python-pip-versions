@@ -11,8 +11,5 @@ dist: trusty
 services:
   - docker
 
-install:
-  - echo "aa"
-
 script:
-  - ./run.sh
+  - travis_wait ./run.sh

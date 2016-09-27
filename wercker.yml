@@ -9,17 +9,6 @@ build:
         name: copy binary
         code: cp *sh "$WERCKER_OUTPUT_DIR"
 
-test:
-  box: docker
-  steps:
-
-    # copy script to a location that gets passed along to next pipelines
-    - script:
-        name: run_all
-        code: |
-          docker run hello-world
-          ./run.sh
-
 
 # ---------------------------------- debian 8 jessie -----------------------------------------------
 

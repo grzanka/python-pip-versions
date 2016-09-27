@@ -110,5 +110,6 @@ case "$OSTYPE" in
     ;;
 esac
 
-python -V || python3 -V
-pip -V || pip3 -V
+python -V >> ver.log 2>&1 || python3 -V >> ver.log 2>&1
+pip -V >> ver.log 2>&1 || pip3 -V >> ver.log 2>&1
+cat ver.log
