@@ -85,6 +85,7 @@ esac
 
 PYTHON_VERSION=$1
 
+
 # Detect the platform (similar to $OSTYPE)
 # Inspired by http://stackoverflow.com/questions/394230/detect-the-os-from-a-bash-script
 # TODO improve furter
@@ -92,17 +93,17 @@ case "$OSTYPE" in
   linux-gnu*) # Debian
     echo "Linux-gnu: $OSTYPE"
     os_type
-    $PACFUN
+    $PACFUN $PYTHON_VERSION
     ;;
   linux*)
     echo "Linux: $OSTYPE"
     os_type
-    $PACFUN
+    $PACFUN $PYTHON_VERSION
     ;;
   bsd*)
     echo "BSD: $OSTYPE"
     os_type
-    $PACFUN
+    $PACFUN $PYTHON_VERSION
     ;;
   *)
     echo "Unknown: $OSTYPE"
