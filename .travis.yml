@@ -1,0 +1,18 @@
+# before commiting check this file here: https://lint.travis-ci.org/
+
+language: generic
+
+
+# travis-ci runs by default on ancient Ubuntu 12.04 (precise)
+# following options will give us Ubuntu 14.04 (trusty)
+sudo: required
+dist: trusty
+
+services:
+  - docker
+
+install:
+  - echo "aa"
+
+script:
+  - ./run.sh

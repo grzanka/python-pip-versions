@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-images="debian:testing
-ubuntu:12.04 ubuntu:14.04 ubuntu:16.04"
+images=(
+    "debian:testing"
+    "ubuntu:12.04"
+    "ubuntu:14.04"
+    "ubuntu:16.04"
+)
 
-for image in "$images"
+for image in "${images[@]}"
 do
    docker run --rm -it -v `pwd`:/tmp/opt/:ro $image bash -c "/tmp/opt/discover.sh py2"
    docker run --rm -it -v `pwd`:/tmp/opt/:ro $image bash -c "/tmp/opt/discover.sh py3"
