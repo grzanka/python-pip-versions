@@ -24,9 +24,11 @@ test:
           sudo apt-get update
           sudo apt-get install -y docker-engine
           sudo service docker start
-          sleep 10 && service docker status
-          docker run hello-world
-          ./run.sh
+          sleep 10 && sudo service docker status
+          sudo ps aux | grep docker
+          sudo /usr/bin/docker -d
+          sudo docker run hello-world
+          sudo ./run.sh
 
 
 # ---------------------------------- debian 8 jessie -----------------------------------------------
