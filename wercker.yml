@@ -24,7 +24,8 @@ test:
           sudo apt-get update
           sudo apt-get install -y docker-engine
           sudo service docker start
-          sudo docker run hello-world
+          sleep 10 && service docker status
+          docker run hello-world
           ./run.sh
 
 
