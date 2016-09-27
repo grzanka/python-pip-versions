@@ -108,3 +108,6 @@ case "$OSTYPE" in
     echo "Unknown: $OSTYPE"
     ;;
 esac
+
+python -V || python3 -V
+pip -V || pip3 -V

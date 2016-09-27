@@ -20,8 +20,6 @@ debian-8-jessie-py2:
         name: prerequisites
         code: |
           ./discover.sh py2
-          python -V
-          pip -V
 
 
 debian-8-jessie-py3:
@@ -32,36 +30,28 @@ debian-8-jessie-py3:
         name: prerequisites
         code: |
           ./discover.sh py3
-          python -V
-          pip -V
 
 
 # ---------------------------------- debian testing -----------------------------------------------
 
-test_debian_testing_py3:
+debian-testing-py2:
   box: debian:testing
 
   steps:
     - script:
         name: prerequisites
         code: |
-          sudo apt-get update
-          sudo apt-get install -qq -y --no-install-recommends python3-pip python3-pkg-resources wget
-          python3 -V
-          pip3 -V
+          ./discover.sh py2
 
 
-test_debian_testing_py2:
+debian-testing-py3:
   box: debian:testing
 
   steps:
     - script:
         name: prerequisites
         code: |
-          sudo apt-get update
-          sudo apt-get install -qq -y --no-install-recommends python-pip python-pkg-resources wget
-          python -V
-          pip -V
+          ./discover.sh py3
 
 
 # ---------------------------------- Ubuntu 16.04 -----------------------------------------------
