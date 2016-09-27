@@ -12,31 +12,28 @@ build:
 
 # ---------------------------------- debian 8 jessie -----------------------------------------------
 
-test_debian_8_jessie_py2:
+debian-8-jessie-py2:
   box: debian:jessie
 
   steps:
-
     - script:
         name: prerequisites
         code: |
-          sudo apt-get update
-          sudo apt-get install -qq -y --no-install-recommends python-pip python-pkg-resources wget
+          bash ./discover.sh
           python -V
           pip -V
 
 
-test_debian_8_jessie_py3:
+debian-8-jessie-py3:
   box: debian:jessie
 
   steps:
     - script:
         name: prerequisites
         code: |
-          sudo apt-get update
-          sudo apt-get install -qq -y --no-install-recommends python3-pip  wget
-          python3 -V
-          pip3 -V
+          bash ./discover.sh
+          python -V
+          pip -V
 
 
 # ---------------------------------- debian testing -----------------------------------------------
