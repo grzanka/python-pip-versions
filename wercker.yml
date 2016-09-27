@@ -19,7 +19,7 @@ debian-8-jessie-py2:
     - script:
         name: prerequisites
         code: |
-          bash ./discover.sh
+          ./discover.sh py2
           python -V
           pip -V
 
@@ -31,7 +31,7 @@ debian-8-jessie-py3:
     - script:
         name: prerequisites
         code: |
-          bash ./discover.sh
+          ./discover.sh py3
           python -V
           pip -V
 
