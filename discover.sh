@@ -11,8 +11,8 @@ set -o pipefail # Return value of a pipeline as the value of the last command to
 apt_install() {
     PYTHON_VERSION=$1
     apt-get -q update
-    PYTHON2_CMD="apt-get install -y python"
-    PYTHON3_CMD="apt-get install -y python3"
+    PYTHON2_CMD="apt-get install -y python python-pip"
+    PYTHON3_CMD="apt-get install -y python3 python3-pip"
     choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
 }
 
@@ -85,6 +85,7 @@ esac
 
 PYTHON_VERSION=$1
 
+
 # Detect the platform (similar to $OSTYPE)
 # Inspired by http://stackoverflow.com/questions/394230/detect-the-os-from-a-bash-script
 # TODO improve furter
@@ -92,19 +93,23 @@ case "$OSTYPE" in
   linux-gnu*) # Debian
     echo "Linux-gnu: $OSTYPE"
     os_type
-    $PACFUN
+    $PACFUN $PYTHON_VERSION
     ;;
   linux*)
     echo "Linux: $OSTYPE"
     os_type
-    $PACFUN
+    $PACFUN $PYTHON_VERSION
     ;;
   bsd*)
     echo "BSD: $OSTYPE"
     os_type
-    $PACFUN
+    $PACFUN $PYTHON_VERSION
     ;;
   *)
     echo "Unknown: $OSTYPE"
     ;;
 esac
+
+python -V >> ver.log 2>&1 || python3 -V >> ver.log 2>&1
+pip -V >> ver.log 2>&1 || pip3 -V >> ver.log 2>&1
+cat ver.log
