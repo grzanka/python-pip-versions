@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 images="debian:testing
-ubuntu:16.04"
+ubuntu:12.04 ubuntu:14.04 ubuntu:16.04"
 
 for image in "$images"
 do
