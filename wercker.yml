@@ -20,7 +20,7 @@ debian-testing-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- debian:testing py3 -----------------------------------------------
@@ -31,7 +31,7 @@ debian-testing-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- debian:stable py2 -----------------------------------------------
@@ -42,7 +42,7 @@ debian-stable-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- debian:stable py3 -----------------------------------------------
@@ -53,7 +53,7 @@ debian-stable-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- debian:7 py2 -----------------------------------------------
@@ -64,7 +64,7 @@ debian-7-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- debian:7 py3 -----------------------------------------------
@@ -75,7 +75,7 @@ debian-7-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- debian:8 py2 -----------------------------------------------
@@ -86,7 +86,7 @@ debian-8-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- debian:8 py3 -----------------------------------------------
@@ -97,7 +97,7 @@ debian-8-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- ubuntu:12.04 py2 -----------------------------------------------
@@ -108,7 +108,7 @@ ubuntu-12.04-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- ubuntu:12.04 py3 -----------------------------------------------
@@ -119,7 +119,7 @@ ubuntu-12.04-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- ubuntu:14.04 py2 -----------------------------------------------
@@ -130,7 +130,7 @@ ubuntu-14.04-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- ubuntu:14.04 py3 -----------------------------------------------
@@ -141,7 +141,7 @@ ubuntu-14.04-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- ubuntu:16.04 py2 -----------------------------------------------
@@ -152,7 +152,7 @@ ubuntu-16.04-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- ubuntu:16.04 py3 -----------------------------------------------
@@ -163,7 +163,7 @@ ubuntu-16.04-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- ubuntu:16.10 py2 -----------------------------------------------
@@ -174,7 +174,7 @@ ubuntu-16.10-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- ubuntu:16.10 py3 -----------------------------------------------
@@ -185,7 +185,7 @@ ubuntu-16.10-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- fedora:20 py2 -----------------------------------------------
@@ -196,7 +196,7 @@ fedora-20-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- fedora:20 py3 -----------------------------------------------
@@ -207,7 +207,7 @@ fedora-20-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- fedora:21 py2 -----------------------------------------------
@@ -218,7 +218,7 @@ fedora-21-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- fedora:21 py3 -----------------------------------------------
@@ -229,7 +229,7 @@ fedora-21-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- fedora:22 py2 -----------------------------------------------
@@ -240,7 +240,7 @@ fedora-22-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- fedora:22 py3 -----------------------------------------------
@@ -251,7 +251,7 @@ fedora-22-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- fedora:23 py2 -----------------------------------------------
@@ -262,7 +262,7 @@ fedora-23-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- fedora:23 py3 -----------------------------------------------
@@ -273,7 +273,7 @@ fedora-23-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- fedora:24 py2 -----------------------------------------------
@@ -284,7 +284,7 @@ fedora-24-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- fedora:24 py3 -----------------------------------------------
@@ -295,7 +295,7 @@ fedora-24-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- centos:7 py2 -----------------------------------------------
@@ -306,7 +306,7 @@ centos-7-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- centos:7 py3 -----------------------------------------------
@@ -317,7 +317,7 @@ centos-7-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- centos:6 py2 -----------------------------------------------
@@ -328,7 +328,7 @@ centos-6-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- centos:6 py3 -----------------------------------------------
@@ -339,7 +339,7 @@ centos-6-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- centos:5 py2 -----------------------------------------------
@@ -350,7 +350,7 @@ centos-5-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- centos:5 py3 -----------------------------------------------
@@ -361,7 +361,7 @@ centos-5-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- opensuse py2 -----------------------------------------------
@@ -372,7 +372,7 @@ opensuse-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- opensuse py3 -----------------------------------------------
@@ -383,7 +383,7 @@ opensuse-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 
 # ---------------------------------- finalduty/archlinux py2 -----------------------------------------------
@@ -394,7 +394,7 @@ finalduty-archlinux-py2:
         - script:
           name: install
           code: |
-             ./install py2
+             ./install.sh py2
              ./discover.sh
 
 # ---------------------------------- finalduty/archlinux py3 -----------------------------------------------
@@ -405,6 +405,6 @@ finalduty-archlinux-py3:
         - script:
           name: install
           code: |
-             ./install py3
+             ./install.sh py3
              ./discover.sh
 

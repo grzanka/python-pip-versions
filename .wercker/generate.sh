@@ -38,7 +38,7 @@ do
         echo "        - script:" >> $OUTFILE
         echo "          name: install" >> $OUTFILE
         echo "          code: |" >> $OUTFILE
-        echo "             ./install $PYVER" >> $OUTFILE
+        echo "             ./install.sh $PYVER" >> $OUTFILE
         echo "             ./discover.sh" >> $OUTFILE
         echo "" >> $OUTFILE
 
