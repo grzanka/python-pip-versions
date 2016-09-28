@@ -83,7 +83,7 @@ zypper_install() {
 
 # default install, do nothing
 default_install() {
-   echo "Defaul installation method, empty"
+   echo "Default installation method, empty"
 }
 
 
@@ -97,6 +97,7 @@ case `uname` in
      which zypper && zypper_install $PYTHON_VERSION   # openSUSE
      which apt-get && apt_install $PYTHON_VERSION     # Ubuntu, Debian
      which pacman && pacman_install $PYTHON_VERSION   # ArchLinux
+     true                                             # if all above fails
      ;;
   * )
      # Handle other stuff here.
