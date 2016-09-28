@@ -32,7 +32,7 @@ do
 
         echo "# ---------------------------------- $IMAGE $PYVER -----------------------------------------------" >> $OUTFILE
         echo "$NAME:" >> $OUTFILE
-        echo "  box: $IMAGE:" >> $OUTFILE
+        echo "  box: $IMAGE" >> $OUTFILE
         echo "" >> $OUTFILE
         echo "  steps:" >> $OUTFILE
         echo "      - script:" >> $OUTFILE

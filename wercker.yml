@@ -7,77 +7,404 @@ build:
     # copy script to a location that gets passed along to next pipelines
     - script:
         name: copy binary
-        code: cp *sh "$WERCKER_OUTPUT_DIR"
-
-
-# ---------------------------------- debian 8 jessie -----------------------------------------------
-
-debian-8-jessie-py2:
-  box: debian:jessie
-
-  steps:
-    - script:
-        name: prerequisites
         code: |
-          ./install.sh py2
-          ./discover.sh
+          cp *sh "$WERCKER_OUTPUT_DIR"
+          cp -R Dockerfiles "$WERCKER_OUTPUT_DIR"
 
 
-debian-8-jessie-py3:
-  box: debian:jessie
-
-  steps:
-    - script:
-        name: prerequisites
-        code: |
-          ./install.sh py3
-          ./discover.sh
-
-
-# ---------------------------------- debian testing -----------------------------------------------
-
+# ---------------------------------- debian:testing py2 -----------------------------------------------
 debian-testing-py2:
   box: debian:testing
 
   steps:
-    - script:
-        name: prerequisites
-        code: |
-          ./install.sh py2
+      - script:
+      - name: install
+      - code: |
+          ./install py2
           ./discover.sh
 
-
+# ---------------------------------- debian:testing py3 -----------------------------------------------
 debian-testing-py3:
   box: debian:testing
 
   steps:
-    - script:
-        name: prerequisites
-        code: |
-          ./install.sh py3
+      - script:
+      - name: install
+      - code: |
+          ./install py3
           ./discover.sh
 
-
-# ---------------------------------- debian stable -----------------------------------------------
-
+# ---------------------------------- debian:stable py2 -----------------------------------------------
 debian-stable-py2:
   box: debian:stable
 
   steps:
-    - script:
-        name: prerequisites
-        code: |
-          ./install.sh py2
+      - script:
+      - name: install
+      - code: |
+          ./install py2
           ./discover.sh
 
-
+# ---------------------------------- debian:stable py3 -----------------------------------------------
 debian-stable-py3:
   box: debian:stable
 
   steps:
-    - script:
-        name: prerequisites
-        code: |
-          ./install.sh py3
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- debian:7 py2 -----------------------------------------------
+debian-7-py2:
+  box: debian:7
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- debian:7 py3 -----------------------------------------------
+debian-7-py3:
+  box: debian:7
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- debian:8 py2 -----------------------------------------------
+debian-8-py2:
+  box: debian:8
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- debian:8 py3 -----------------------------------------------
+debian-8-py3:
+  box: debian:8
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- ubuntu:12.04 py2 -----------------------------------------------
+ubuntu-12.04-py2:
+  box: ubuntu:12.04
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- ubuntu:12.04 py3 -----------------------------------------------
+ubuntu-12.04-py3:
+  box: ubuntu:12.04
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- ubuntu:14.04 py2 -----------------------------------------------
+ubuntu-14.04-py2:
+  box: ubuntu:14.04
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- ubuntu:14.04 py3 -----------------------------------------------
+ubuntu-14.04-py3:
+  box: ubuntu:14.04
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- ubuntu:16.04 py2 -----------------------------------------------
+ubuntu-16.04-py2:
+  box: ubuntu:16.04
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- ubuntu:16.04 py3 -----------------------------------------------
+ubuntu-16.04-py3:
+  box: ubuntu:16.04
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- ubuntu:16.10 py2 -----------------------------------------------
+ubuntu-16.10-py2:
+  box: ubuntu:16.10
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- ubuntu:16.10 py3 -----------------------------------------------
+ubuntu-16.10-py3:
+  box: ubuntu:16.10
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- fedora:20 py2 -----------------------------------------------
+fedora-20-py2:
+  box: fedora:20
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- fedora:20 py3 -----------------------------------------------
+fedora-20-py3:
+  box: fedora:20
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- fedora:21 py2 -----------------------------------------------
+fedora-21-py2:
+  box: fedora:21
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- fedora:21 py3 -----------------------------------------------
+fedora-21-py3:
+  box: fedora:21
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- fedora:22 py2 -----------------------------------------------
+fedora-22-py2:
+  box: fedora:22
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- fedora:22 py3 -----------------------------------------------
+fedora-22-py3:
+  box: fedora:22
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- fedora:23 py2 -----------------------------------------------
+fedora-23-py2:
+  box: fedora:23
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- fedora:23 py3 -----------------------------------------------
+fedora-23-py3:
+  box: fedora:23
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- fedora:24 py2 -----------------------------------------------
+fedora-24-py2:
+  box: fedora:24
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- fedora:24 py3 -----------------------------------------------
+fedora-24-py3:
+  box: fedora:24
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- centos:7 py2 -----------------------------------------------
+centos-7-py2:
+  box: centos:7
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- centos:7 py3 -----------------------------------------------
+centos-7-py3:
+  box: centos:7
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- centos:6 py2 -----------------------------------------------
+centos-6-py2:
+  box: centos:6
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- centos:6 py3 -----------------------------------------------
+centos-6-py3:
+  box: centos:6
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- centos:5 py2 -----------------------------------------------
+centos-5-py2:
+  box: centos:5
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- centos:5 py3 -----------------------------------------------
+centos-5-py3:
+  box: centos:5
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- opensuse py2 -----------------------------------------------
+opensuse-py2:
+  box: opensuse
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- opensuse py3 -----------------------------------------------
+opensuse-py3:
+  box: opensuse
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
+          ./discover.sh
+
+# ---------------------------------- finalduty/archlinux py2 -----------------------------------------------
+finalduty-archlinux-py2:
+  box: finalduty/archlinux
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py2
+          ./discover.sh
+
+# ---------------------------------- finalduty/archlinux py3 -----------------------------------------------
+finalduty-archlinux-py3:
+  box: finalduty/archlinux
+
+  steps:
+      - script:
+      - name: install
+      - code: |
+          ./install py3
           ./discover.sh
 

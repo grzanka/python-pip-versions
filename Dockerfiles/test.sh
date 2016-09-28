@@ -31,7 +31,9 @@ IMAGES=(
 
 
 # generate all possible docker files
+:> ver.log
 for IMAGE in "${IMAGES[@]}"
 do
-    docker run --rm -it $IMAGE ./discover.sh
+    docker run --rm -it $IMAGE ./discover.sh >> ver.log
 done
+cat ver.log
