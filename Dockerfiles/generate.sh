@@ -3,6 +3,7 @@
 # list of docker images to install python and check its version
 source ../images.sh
 
+# generate all possible docker files
 for IMAGE in "${IMAGES[@]}"
 do
     FILENAME=${IMAGE/:/_}_py2
