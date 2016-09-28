@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -x # Print command traces before executing command
+# set -x # Print command traces before executing command
 
 set -e # Exit immediately if a simple command exits with a non-zero status.
 
@@ -8,104 +8,43 @@ set -o pipefail # Return value of a pipeline as the value of the last command to
                 # exit with a non-zero status, or zero if all commands in the
                 # pipeline exit successfully.
 
-apt_install() {
-    PYTHON_VERSION=$1
-    apt-get -q update
-    PYTHON2_CMD="apt-get install -y python python-pip"
-    PYTHON3_CMD="apt-get install -y python3 python3-pip"
-    choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
+
+# first agument is the command which prints a version
+# second argument is a path to the logfile
+# function checks if command is present:
+#   yes, it's present: command and its output will be appended to output file
+#   yes, it's missing: command and "missing" will be appended to output file
+check_version() {
+    # get arguments
+    CMD=$1
+    LOGFILE=$2
+
+    # try to execute command, do not exit if command if missing
+    # save return code
+    set +e
+    $CMD -V 1>/dev/null 2>/dev/null
+    RETCODE=$?
+    set -e
+
+    # save output depending on the return code
+    if [[ $RETCODE -eq 0 ]] ; then
+        echo $CMD `$CMD -V 2>&1` >> $LOGFILE
+    else
+        echo $CMD "missing" >> $LOGFILE
+    fi
 }
 
 
-yum_install() {
-    PYTHON_VERSION=$1
-    yum update -y -q
-    PYTHON2_CMD="yum install -y -q python"
-    PYTHON3_CMD="yum install -y -q python3"
-    choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
-}
+# check python version, if present, then save it to python.ver file
+:> python.ver
+check_version python3 python.ver
+check_version python python.ver
+cat python.ver
 
-
-dnf_install() {
-    PYTHON_VERSION=$1
-    dnf update -y -q
-    PYTHON2_CMD="dnf install -y -q python"
-    PYTHON3_CMD="dnf install -y -q python3"
-    choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
-}
-
-
-zypper_install() {
-    PYTHON_VERSION=$1
-    dnf update -y -q
-    PYTHON2_CMD="dnf install -y -q python"
-    PYTHON3_CMD="dnf install -y -q python3"
-    choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
-}
-
-choose_python_version() {
-    PYTHON_VERSION=$1
-    PYTHON2_CMD=$2
-    PYTHON3_CMD=$3
-    case "$PYTHON_VERSION" in
-        py2*)
-        echo "Py2: $PYTHON_VERSION"
-        $PYTHON2_CMD
-        ;;
-        py3*)
-        echo "Py3: $PYTHON_VERSION"
-        $PYTHON3_CMD
-        ;;
-        *)
-        echo "Unknown: $PYTHON_VERSION"
-        ;;
-     esac
-}
-
-
-# TODO - check if this would be good to discover system version
-# found here: http://unix.stackexchange.com/questions/6345/how-can-i-get-distribution-name-and-version-number-in-a-simple-shell-script/6348
-# check discussion below
-function os_type
-{
-case `uname` in
-  Linux )
-     LINUX=1
-     which dnf && { PACFUN=dnf_install; return; }
-     which yum && { PACFUN=yum_install; return; }
-     which zypper && { PACFUN=zypper_install; return; }
-     which apt-get && { PACFUN=apt_install; return; }
-     ;;
-  * )
-     # Handle other stuff here.
-     ;;
-esac
-}
-
-
-PYTHON_VERSION=$1
-
-
-# Detect the platform (similar to $OSTYPE)
-# Inspired by http://stackoverflow.com/questions/394230/detect-the-os-from-a-bash-script
-# TODO improve furter
-case "$OSTYPE" in
-  linux-gnu*) # Debian
-    echo "Linux-gnu: $OSTYPE"
-    os_type
-    $PACFUN $PYTHON_VERSION
-    ;;
-  linux*)
-    echo "Linux: $OSTYPE"
-    os_type
-    $PACFUN $PYTHON_VERSION
-    ;;
-  bsd*)
-    echo "BSD: $OSTYPE"
-    os_type
-    $PACFUN $PYTHON_VERSION
-    ;;
-  *)
-    echo "Unknown: $OSTYPE"
-    ;;
-esac
+# check pip version, if present, then save it to pip.ver file
+:> pip.ver
+check_version pip3 pip.ver
+check_version "python3 -m pip -V" pip.ver
+check_version pip pip.ver
+check_version "python -m pip -V" pip.ver
+cat pip.ver

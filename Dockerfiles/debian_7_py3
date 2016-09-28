@@ -1,8 +1,10 @@
 FROM debian:7
 
-# Add supervisor cfg, start it
-ADD discover.sh /discover.sh
+# add installation script
+ADD install.sh /install.sh
 
-RUN /discover.sh py3
+# install python
+RUN /install.sh py3
 
-CMD (python -V >> ver.log 2>&1 || python3 -V >> ver.log 2>&1) && (pip -V >> ver.log 2>&1 || pip3 -V >> ver.log 2>&1) && cat ver.log
+#
+CMD /discover.sh && bash
