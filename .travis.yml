@@ -12,4 +12,4 @@ services:
   - docker
 
 script:
-  - travis_wait 60 ./Dockerfiles/test.sh
+  - ./Dockerfiles/test.sh

@@ -32,14 +32,14 @@ do
 
         echo "# ---------------------------------- $IMAGE $PYVER -----------------------------------------------" >> $OUTFILE
         echo "$NAME:" >> $OUTFILE
-        echo "  box: $IMAGE" >> $OUTFILE
+        echo "    box: $IMAGE" >> $OUTFILE
         echo "" >> $OUTFILE
-        echo "  steps:" >> $OUTFILE
-        echo "      - script:" >> $OUTFILE
-        echo "      - name: install" >> $OUTFILE
-        echo "      - code: |" >> $OUTFILE
-        echo "          ./install $PYVER" >> $OUTFILE
-        echo "          ./discover.sh" >> $OUTFILE
+        echo "    steps:" >> $OUTFILE
+        echo "        - script:" >> $OUTFILE
+        echo "          name: install" >> $OUTFILE
+        echo "          code: |" >> $OUTFILE
+        echo "             ./install $PYVER" >> $OUTFILE
+        echo "             ./discover.sh" >> $OUTFILE
         echo "" >> $OUTFILE
 
     done
