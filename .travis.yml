@@ -12,7 +12,4 @@ services:
   - docker
 
 script:
-  - docker run --rm -it grzanka/test_debian_py2:7
-  - docker run --rm -it grzanka/test_debian_py3:7
-  - docker run --rm -it grzanka/test_debian_py2:8
-  - docker run --rm -it grzanka/test_debian_py3:8
+  - ./Dockerfiles/test.sh

@@ -50,8 +50,8 @@ apt_install() {
 yum_install() {
     PYTHON_VERSION=$1
     yum update -y -q
-    PYTHON2_CMD="yum install -y -q python"
-    PYTHON3_CMD="yum install -y -q python3"
+    PYTHON2_CMD="yum install -y -q python python-pip"
+    PYTHON3_CMD="yum install -y -q python3 python3-pip"
     choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
 }
 
@@ -59,8 +59,8 @@ yum_install() {
 dnf_install() {
     PYTHON_VERSION=$1
     dnf update -y -q
-    PYTHON2_CMD="dnf install -y -q python"
-    PYTHON3_CMD="dnf install -y -q python3"
+    PYTHON2_CMD="dnf install -y -q python python-pip"
+    PYTHON3_CMD="dnf install -y -q python3 python3-pip"
     choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
 }
 
@@ -68,16 +68,16 @@ dnf_install() {
 zypper_install() {
     PYTHON_VERSION=$1
     dnf update -y -q
-    PYTHON2_CMD="dnf install -y -q python"
-    PYTHON3_CMD="dnf install -y -q python3"
+    PYTHON2_CMD="zypper install -y -q python python-pip"
+    PYTHON3_CMD="zypper install -y -q python3 python3-pip"
     choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
 }
 
 # install using pacman, python version (py2 or py3) as first argument
-zypper_install() {
+pacman_install() {
     PYTHON_VERSION=$1
-    PYTHON2_CMD="pacman -S python2"
-    PYTHON3_CMD="pacman -S python"
+    PYTHON2_CMD="pacman -S --noconfirm python2 python2-pip"
+    PYTHON3_CMD="pacman -S --noconfirm python python-pip"
     choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
 }
 

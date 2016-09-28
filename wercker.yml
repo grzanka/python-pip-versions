@@ -19,7 +19,8 @@ debian-8-jessie-py2:
     - script:
         name: prerequisites
         code: |
-          ./discover.sh py2
+          ./install.sh py2
+          ./discover.sh
 
 
 debian-8-jessie-py3:
@@ -29,7 +30,8 @@ debian-8-jessie-py3:
     - script:
         name: prerequisites
         code: |
-          ./discover.sh py3
+          ./install.sh py3
+          ./discover.sh
 
 
 # ---------------------------------- debian testing -----------------------------------------------
@@ -41,7 +43,8 @@ debian-testing-py2:
     - script:
         name: prerequisites
         code: |
-          ./discover.sh py2
+          ./install.sh py2
+          ./discover.sh
 
 
 debian-testing-py3:
@@ -51,7 +54,8 @@ debian-testing-py3:
     - script:
         name: prerequisites
         code: |
-          ./discover.sh py3
+          ./install.sh py3
+          ./discover.sh
 
 
 # ---------------------------------- debian stable -----------------------------------------------
@@ -63,7 +67,8 @@ debian-stable-py2:
     - script:
         name: prerequisites
         code: |
-          ./discover.sh py2
+          ./install.sh py2
+          ./discover.sh
 
 
 debian-stable-py3:
@@ -73,5 +78,6 @@ debian-stable-py3:
     - script:
         name: prerequisites
         code: |
-          ./discover.sh py3
+          ./install.sh py3
+          ./discover.sh
 
