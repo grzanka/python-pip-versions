@@ -83,7 +83,7 @@ zypper_install() {
 
 # default install, do nothing
 default_install() {
-   echo "Defaul installation method, empty"
+   echo "Default installation method, empty"
 }
 
 
@@ -93,10 +93,11 @@ default_install() {
 case `uname` in
   Linux )
      which dnf && dnf_install $PYTHON_VERSION         # Fedora
-     which yum && yum_install $PYTHON_VERSION         # CentOS
+     yum info which && yum_install $PYTHON_VERSION    # CentOS
      which zypper && zypper_install $PYTHON_VERSION   # openSUSE
      which apt-get && apt_install $PYTHON_VERSION     # Ubuntu, Debian
      which pacman && pacman_install $PYTHON_VERSION   # ArchLinux
+     true                                             # if all above fails
      ;;
   * )
      # Handle other stuff here.

@@ -1,4 +1,4 @@
-FROM debian:7
+FROM debian:stable
 
 # add installation script
 ADD install.sh /install.sh
