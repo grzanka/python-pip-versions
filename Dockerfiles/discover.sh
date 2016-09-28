@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -x # Print command traces before executing command
+# set -x # Print command traces before executing command
 
 set -e # Exit immediately if a simple command exits with a non-zero status.
 
