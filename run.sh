@@ -26,6 +26,8 @@ images=(
     "centos:7"
     "centos:6"
     "centos:5"
+    "opensuse"
+    "finalduty/archlinux"
 )
 
 

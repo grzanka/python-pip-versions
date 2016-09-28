@@ -73,6 +73,13 @@ zypper_install() {
     choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
 }
 
+# install using pacman, python version (py2 or py3) as first argument
+zypper_install() {
+    PYTHON_VERSION=$1
+    PYTHON2_CMD="pacman -S python2"
+    PYTHON3_CMD="pacman -S python"
+    choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
+}
 
 # default install, do nothing
 default_install() {
@@ -87,8 +94,9 @@ case `uname` in
   Linux )
      which dnf && dnf_install $PYTHON_VERSION         # Fedora
      which yum && yum_install $PYTHON_VERSION         # CentOS
-     which zypper && zypper_install $PYTHON_VERSION   # ????
+     which zypper && zypper_install $PYTHON_VERSION   # openSUSE
      which apt-get && apt_install $PYTHON_VERSION     # Ubuntu, Debian
+     which pacman && pacman_install $PYTHON_VERSION   # ArchLinux
      ;;
   * )
      # Handle other stuff here.
