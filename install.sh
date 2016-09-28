@@ -9,4 +9,4 @@ set -o pipefail # Return value of a pipeline as the value of the last command to
                 # pipeline exit successfully.
 
 
-./Dockerfiles/install.sh
+./Dockerfiles/install.sh "$@"
