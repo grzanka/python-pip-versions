@@ -7,5 +7,4 @@ ADD discover.sh /discover.sh
 # install python
 RUN /install.sh py2
 
-#
 CMD /discover.sh && bash

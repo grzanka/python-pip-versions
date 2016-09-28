@@ -1,4 +1,4 @@
-FROM debian:7
+FROM ubuntu:12.04
 
 # add installation script
 ADD install.sh /install.sh
