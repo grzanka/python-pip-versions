@@ -34,6 +34,8 @@ IMAGES=(
 :> ver.log
 for IMAGE in "${IMAGES[@]}"
 do
+    echo "--------------------------------------------------" >> ver.log
+    echo $IMAGE >> ver.log
     docker run --rm -it $IMAGE ./discover.sh >> ver.log
 done
 cat ver.log
