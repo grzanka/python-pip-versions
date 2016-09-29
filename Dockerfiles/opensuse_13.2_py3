@@ -1,10 +1,10 @@
-FROM opensuse
+FROM opensuse:13.2
 
 # add installation script
 ADD install.sh /install.sh
 ADD discover.sh /discover.sh
 
 # install python
-RUN /install.sh py2
+RUN /install.sh py3
 
 CMD /discover.sh && bash

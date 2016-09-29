@@ -27,6 +27,8 @@ IMAGES=(
     "centos:7"
     "centos:6"
     "centos:5"
-    "opensuse"
+    "opensuse:13.2"
+    "opensuse:42.1"
+    "opensuse:tumbleweed"
     "finalduty/archlinux"
 )

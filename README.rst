@@ -44,13 +44,13 @@ Ubuntu
 | Release |        Life span        +---------+---------+---------+---------+
 |         |                         | Python  | Pip     | Python  | Pip     |
 +=========+=========================+=========+=========+=========+=========+
-| 16.10   | 2016-10-20 - 2017-07-?? |  ??     | ??      | 3.5.2+  | 8.1.2   |
+| 16.10   | 2016-10-20 - 2017-07-?? |  2.7.12 | 8.1.2   | 3.5.2+  | 8.1.2   |
 +---------+-------------------------+---------+---------+---------+---------+
 | 16.04   | 2016-04-21 - 2021-04-?? |  2.7.12 | 8.1.1   | 3.5.2   | 8.1.1   |
 +---------+-------------------------+---------+---------+---------+---------+
 | 14.04   | 2014-04-17 - 2019-04-?? |  2.7.6  | 1.5.4   | 3.4.3   | 1.5.4   |
 +---------+-------------------------+---------+---------+---------+---------+
-| 12.04   | 2012-04-26 - 2017-04-26 |  ??     | ??      | ??      | ??      |
+| 12.04   | 2012-04-26 - 2017-04-26 |  2.7.3  | --      | 3.2.3   | --      |
 +---------+-------------------------+---------+---------+---------+---------+
 
 Ubuntu life span taken from https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
@@ -93,11 +93,11 @@ CentOS
 | Release |        Life span        +---------+---------+---------+---------+
 |         |                         | Python  | Pip     | Python  | Pip     |
 +=========+=========================+=========+=========+=========+=========+
-| 5       | 2007-04-12 - 2017-03-31 |  ??     | ??      | ??      | ??      |
+| 5       | 2007-04-12 - 2017-03-31 |  2.4.3  | --      | --      | --      |
 +---------+-------------------------+---------+---------+---------+---------+
-| 6       | 2011-07-10 - 2020-11-30 |  ??     | ??      | ??      | ??      |
+| 6       | 2011-07-10 - 2020-11-30 |  2.6.6  | --      | --      | --      |
 +---------+-------------------------+---------+---------+---------+---------+
-| 7       | 2014-07-07 - 2024-06-30 |  ??     | ??      | ??      | ??      |
+| 7       | 2014-07-07 - 2024-06-30 |  2.7.5  | --      | --      | --      |
 +---------+-------------------------+---------+---------+---------+---------+
 
 CentOS life span taken from https://en.wikipedia.org/wiki/CentOS#End-of-support_schedule
@@ -110,13 +110,25 @@ ArchLinux
 | Release  |        Life span        +---------+---------+---------+---------+
 |          |                         | Python  | Pip     | Python  | Pip     |
 +==========+=========================+=========+=========+=========+=========+
-| rolling  |    --                   |  ??     | ??      | 3.5.2   | 8.1.2   |
+| rolling  |    --                   |  2.7.12 | 8.1.2   | 3.5.2   | 8.1.2   |
 +----------+-------------------------+---------+---------+---------+---------+
 
 openSUSE
 ~~~~~~~~
 
-TBV
++------------+-------------------------+-------------------+-------------------+
+|            |                         | Python 2.x        | Python 3.x        |
+| Release    |        Life span        +---------+---------+---------+---------+
+|            |                         | Python  | Pip     | Python  | Pip     |
++============+=========================+=========+=========+=========+=========+
+| 42.1       | 20??-??-?? - 20??-??-?? |  ?????? | ?????   | ?????   | ?????   |
++------------+-------------------------+---------+---------+---------+---------+
+| 13.2       | 20??-??-?? - 20??-??-?? |  ?????? | ?????   | ?????   | ?????   |
++------------+-------------------------+---------+---------+---------+---------+
+| tumbleweed |    --                   |  ?????? | ?????   | ?????   | ?????   |
++------------+-------------------------+---------+---------+---------+---------+
+
+openSUSE life span taken from https://en.wikipedia.org/wiki/OpenSUSE#Version_history
 
 
 The tools
@@ -127,23 +139,23 @@ and make a query for the version. We assume that you are familiar with docker, h
 computer has good Internet connection.
 
 
-List of docker containers under study is saved in :file:`images.sh` file and covers following distributions: Ubuntu, Debian,
+List of docker containers under study is saved in `images.sh` file and covers following distributions: Ubuntu, Debian,
 Fedora, Centos, ArchLinux, openSUSE.
 
 
-Installation of python and pip is done using :file:`install.sh` (which points to :file:`Dockerfiles/install.sh`) script which 
+Installation of python and pip is done using `install.sh` (which points to `Dockerfiles/install.sh`) script which 
 takes only one argument: either `py2` or `py3` defining python version to install. Install script automatically
 discovers which package manager (apt, yum, dnf or others) is available and uses it install Python interpreter and pip.
 Such script is thus in some way independent of Linux distribution.
 
-Querying of Python and pip version is implemented in :file:`discover.sh` (which points to :file:`Dockerfiles/discover.sh`) script.
+Querying of Python and pip version is implemented in `discover.sh` (which points to `Dockerfiles/discover.sh`) script.
 This script is calling `python -V` (version printing option) and `python3 -V` to discover versions of python interpreters
 from both families. It is also querying pip version in two ways: by calling `pip` commands and by executing pip module.
 Results are printed on the screen and saved into *pip.ver* and *python.ver* files.
 
-Actual study is done by :file:`run.sh` script which loops over all docker images provided in :file:`images.sh` files, 
-installs python interpreter using :file:`install.sh` script and makes query using :file:`discover.sh`.
-Summary of results is saved into :file:`py2.ver` and :file:`py3.ver` files.
+Actual study is done by `run.sh` script which loops over all docker images provided in `images.sh` files, 
+installs python interpreter using `install.sh` script and makes query using `discover.sh`.
+Summary of results is saved into `py2.ver` and `py3.ver` files.
 
 For example to install Python 3 + pip and check versions for Debian 8, use following commands:
 
@@ -185,8 +197,8 @@ This gives another way to get these versions:
 Not all combinations of distribution and Python versions are available. For example CentOS 5, 6 and 7 doesn't
 have Python3 in standard repository. Thus we do not have docker image for CentOS with Python3 installed.
 
-Dockerfiles were generated using :file:`Dockerfiles/generate.sh` script. 
-We provide also script :file:`Dockerfiles/generate.sh` which runs version discovery on abovementioned 
+Dockerfiles were generated using `Dockerfiles/generate.sh` script. 
+We provide also script `Dockerfiles/generate.sh` which runs version discovery on abovementioned 
 images (clean systems with Python and pip installed).
 
 Automated testing
@@ -200,4 +212,4 @@ This project comes also with Travis and wercker configurations. You can see resu
 Author
 ------
 
-Leszek Grzanka (leszek.grzanka@gmail.com)
+Leszek Grzanka (https://github.com/grzanka)
