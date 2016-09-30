@@ -38,6 +38,7 @@ check_version() {
 # check python version, if present, then save it to python.ver file
 :> python.ver
 check_version python3 python.ver
+check_version python2 python.ver
 check_version python python.ver
 cat python.ver
 

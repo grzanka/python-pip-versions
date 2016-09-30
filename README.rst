@@ -6,8 +6,8 @@ available on current Linux distributions.
 
 We provide also set of tools necessary to perform such survey.
 
-The problem
------------
+Problem
+-------
 
 Many Linux distributions have long term support (sometimes few years). 
 This sometimes means that during the lifetime of such distribution
@@ -31,8 +31,8 @@ Thus we also study which version of pip is installed.
 Discovery of default python and pip versions shipped with
 Python and pip default versions on major Linux distros
 
-The results
------------
+Results
+-------
 
 Results obtained from query made on 2016.09.28
 
@@ -110,7 +110,7 @@ ArchLinux
 | Release  |        Life span        +---------+---------+---------+---------+
 |          |                         | Python  | Pip     | Python  | Pip     |
 +==========+=========================+=========+=========+=========+=========+
-| rolling  |    --                   |  2.7.12 | 8.1.2   | 3.5.2   | 8.1.2   |
+| rolling  | rolling release         |  2.7.12 | 8.1.2   | 3.5.2   | 8.1.2   |
 +----------+-------------------------+---------+---------+---------+---------+
 
 openSUSE
@@ -121,15 +121,33 @@ openSUSE
 | Release    |        Life span        +---------+---------+---------+---------+
 |            |                         | Python  | Pip     | Python  | Pip     |
 +============+=========================+=========+=========+=========+=========+
-| 42.1       | 20??-??-?? - 20??-??-?? |  ?????? | ?????   | ?????   | ?????   |
+| 42.1       | 2015-11-04 - 2017-04-?? |  2.7.12 | 7.1.2   | 3.4.5   | 7.1.2   |
 +------------+-------------------------+---------+---------+---------+---------+
-| 13.2       | 20??-??-?? - 20??-??-?? |  ?????? | ?????   | ?????   | ?????   |
+| 13.2       | 2014-11-04 - 2017-01-?? |  2.7.12 | 1.5     | 3.4.5   | 1.5.6   |
 +------------+-------------------------+---------+---------+---------+---------+
-| tumbleweed |    --                   |  ?????? | ?????   | ?????   | ?????   |
+| tumbleweed | rolling release         |  2.7.12 | 8.1.2   | 3.5.1   | 8.1.1   |
 +------------+-------------------------+---------+---------+---------+---------+
 
 openSUSE life span taken from https://en.wikipedia.org/wiki/OpenSUSE#Version_history
 
+Summary
+-------
+
+pip release versions
+
++------------+---------------+---------------------------------------+
+| Version    |  Release date |   Comments                            +
++============+===============+=======================================+
+| 8.1.0      | 2016-03-05    |  support for manylinux1 tag           |
++------------+---------------+---------------------------------------+
+| 8.0.0      | 2016-01-19    |  drop support for Python 3.2          |
++------------+---------------+---------------------------------------+
+| 6.0.0      | 2014-12-22    |  drop support for Python 3.1          |
++------------+---------------+---------------------------------------+
+| 1.5.0      | 2014-01-01    |  Mac OSX support                      |
++------------+---------------+---------------------------------------+
+
+Following https://pip.pypa.io/en/stable/news/
 
 The tools
 ---------

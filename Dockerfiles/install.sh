@@ -67,9 +67,9 @@ dnf_install() {
 # install using zypper, python version (py2 or py3) as first argument
 zypper_install() {
     PYTHON_VERSION=$1
-    dnf update -y -q
-    PYTHON2_CMD="zypper install -y -q python python-pip"
-    PYTHON3_CMD="zypper install -y -q python3 python3-pip"
+    zypper refresh
+    PYTHON2_CMD="zypper install -y python python-pip"
+    PYTHON3_CMD="zypper install -y python3 python3-pip"
     choose_python_version "$PYTHON_VERSION" "$PYTHON2_CMD" "$PYTHON3_CMD"
 }
 
@@ -94,7 +94,7 @@ case `uname` in
   Linux )
      which dnf && dnf_install $PYTHON_VERSION         # Fedora
      yum info which && yum_install $PYTHON_VERSION    # CentOS
-     which zypper && zypper_install $PYTHON_VERSION   # openSUSE
+     zypper -V && zypper_install $PYTHON_VERSION      # openSUSE
      which apt-get && apt_install $PYTHON_VERSION     # Ubuntu, Debian
      which pacman && pacman_install $PYTHON_VERSION   # ArchLinux
      true                                             # if all above fails

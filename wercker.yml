@@ -12,6 +12,11 @@ build:
              cp -R Dockerfiles "$WERCKER_OUTPUT_DIR"
 
 
+          name: install
+          code: |
+             ./install.sh py3
+             ./discover.sh
+
 # ---------------------------------- debian:testing py2 -----------------------------------------------
 debian-testing-py2:
     box: debian:testing
@@ -364,9 +369,9 @@ centos-5-py3:
              ./install.sh py3
              ./discover.sh
 
-# ---------------------------------- opensuse py2 -----------------------------------------------
-opensuse-py2:
-    box: opensuse
+# ---------------------------------- opensuse:13.2 py2 -----------------------------------------------
+opensuse-13.2-py2:
+    box: opensuse:13.2
 
     steps:
         - script:
@@ -375,9 +380,53 @@ opensuse-py2:
              ./install.sh py2
              ./discover.sh
 
-# ---------------------------------- opensuse py3 -----------------------------------------------
-opensuse-py3:
-    box: opensuse
+# ---------------------------------- opensuse:13.2 py3 -----------------------------------------------
+opensuse-13.2-py3:
+    box: opensuse:13.2
+
+    steps:
+        - script:
+          name: install
+          code: |
+             ./install.sh py3
+             ./discover.sh
+
+# ---------------------------------- opensuse:42.1 py2 -----------------------------------------------
+opensuse-42.1-py2:
+    box: opensuse:42.1
+
+    steps:
+        - script:
+          name: install
+          code: |
+             ./install.sh py2
+             ./discover.sh
+
+# ---------------------------------- opensuse:42.1 py3 -----------------------------------------------
+opensuse-42.1-py3:
+    box: opensuse:42.1
+
+    steps:
+        - script:
+          name: install
+          code: |
+             ./install.sh py3
+             ./discover.sh
+
+# ---------------------------------- opensuse:tumbleweed py2 -----------------------------------------------
+opensuse-tumbleweed-py2:
+    box: opensuse:tumbleweed
+
+    steps:
+        - script:
+          name: install
+          code: |
+             ./install.sh py2
+             ./discover.sh
+
+# ---------------------------------- opensuse:tumbleweed py3 -----------------------------------------------
+opensuse-tumbleweed-py3:
+    box: opensuse:tumbleweed
 
     steps:
         - script:
