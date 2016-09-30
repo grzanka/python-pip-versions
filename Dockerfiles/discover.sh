@@ -22,13 +22,13 @@ check_version() {
     # try to execute command, do not exit if command if missing
     # save return code
     set +e
-    $CMD -V 1>/dev/null 2>/dev/null
+    $CMD --version 1>/dev/null 2>/dev/null
     RETCODE=$?
     set -e
 
     # save output depending on the return code
     if [[ $RETCODE -eq 0 ]] ; then
-        echo $CMD `$CMD -V 2>&1` >> $LOGFILE
+        echo $CMD `$CMD --version 2>&1` >> $LOGFILE
     else
         echo $CMD "missing" >> $LOGFILE
     fi
@@ -45,7 +45,8 @@ cat python.ver
 # check pip version, if present, then save it to pip.ver file
 :> pip.ver
 check_version pip3 pip.ver
-check_version "python3 -m pip -V" pip.ver
+check_version pip3.2 pip.ver
+check_version "python3 -m pip --version" pip.ver
 check_version pip pip.ver
-check_version "python -m pip -V" pip.ver
+check_version "python -m pip --version" pip.ver
 cat pip.ver

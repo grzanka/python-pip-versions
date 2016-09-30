@@ -6,6 +6,9 @@ available on current Linux distributions.
 
 We provide also set of tools necessary to perform such survey.
 
+.. contents:: Table of Contents
+   :depth: 2
+
 Problem
 -------
 
@@ -50,7 +53,7 @@ Ubuntu
 +---------+-------------------------+---------+---------+---------+---------+
 | 14.04   | 2014-04-17 - 2019-04-?? |  2.7.6  | 1.5.4   | 3.4.3   | 1.5.4   |
 +---------+-------------------------+---------+---------+---------+---------+
-| 12.04   | 2012-04-26 - 2017-04-26 |  2.7.3  | --      | 3.2.3   | --      |
+| 12.04   | 2012-04-26 - 2017-04-26 |  2.7.3  | 1.0     | 3.2.3   | --      |
 +---------+-------------------------+---------+---------+---------+---------+
 
 Ubuntu life span taken from https://en.wikipedia.org/wiki/Ubuntu_version_history#Table_of_versions
@@ -63,7 +66,7 @@ Debian
 | Release  |        Life span        +---------+---------+---------+---------+
 |          |                         | Python  | Pip     | Python  | Pip     |
 +==========+=========================+=========+=========+=========+=========+
-| 7 wheezy | 2014-05-04 - 2018-05-?? |  2.7.3  | --      | 3.2.3   | --      |
+| 7 wheezy | 2014-05-04 - 2018-05-?? |  2.7.3  | 1.1     | 3.2.3   | 1.1     |
 +----------+-------------------------+---------+---------+---------+---------+
 | 8 jessie | 2015-04-26 - 2020-05-?? |  2.7.9  | 1.5.6   | 3.4.2   | 1.5.6   |
 +----------+-------------------------+---------+---------+---------+---------+
@@ -106,17 +109,6 @@ CentOS
 
 CentOS life span taken from https://en.wikipedia.org/wiki/CentOS#End-of-support_schedule
 
-ArchLinux
-~~~~~~~~~
-
-+----------+-------------------------+-------------------+-------------------+
-|          |                         | Python 2.x        | Python 3.x        |
-| Release  |        Life span        +---------+---------+---------+---------+
-|          |                         | Python  | Pip     | Python  | Pip     |
-+==========+=========================+=========+=========+=========+=========+
-| rolling  | rolling release         |  2.7.12 | 8.1.2   | 3.5.2   | 8.1.2   |
-+----------+-------------------------+---------+---------+---------+---------+
-
 openSUSE
 ~~~~~~~~
 
@@ -134,10 +126,25 @@ openSUSE
 
 openSUSE life span taken from https://en.wikipedia.org/wiki/OpenSUSE#Version_history
 
+ArchLinux
+~~~~~~~~~
+
++----------+-------------------------+-------------------+-------------------+
+|          |                         | Python 2.x        | Python 3.x        |
+| Release  |        Life span        +---------+---------+---------+---------+
+|          |                         | Python  | Pip     | Python  | Pip     |
++==========+=========================+=========+=========+=========+=========+
+| rolling  | rolling release         |  2.7.12 | 8.1.2   | 3.5.2   | 8.1.2   |
++----------+-------------------------+---------+---------+---------+---------+
+
+
 Summary
 -------
 
-Python releases, following https://www.python.org/doc/versions/ and https://en.wikipedia.org/wiki/History_of_Python#Version_release_dates
+Python releases
+~~~~~~~~~~~~~~~
+
+Following https://www.python.org/doc/versions/ and https://en.wikipedia.org/wiki/History_of_Python#Version_release_dates
 
 +------------+---------------+---------------------------------------+
 | Version    |  Release date |   Comments                            +
@@ -177,8 +184,10 @@ Python releases, following https://www.python.org/doc/versions/ and https://en.w
 |            |               |  openSUSE tumbleweed                  |
 +------------+---------------+---------------------------------------+
 
+pip releases
+~~~~~~~~~~~~
 
-pip releases, following https://pip.pypa.io/en/stable/news/
+following https://pip.pypa.io/en/stable/news/
 
 +------------+---------------+---------------------------------------+
 | Version    |  Release date |   Comments                            +
@@ -201,11 +210,23 @@ pip releases, following https://pip.pypa.io/en/stable/news/
 +------------+---------------+---------------------------------------+
 | 1.5.0      | 2014-01-01    |  **Mac OSX support**                  |
 +------------+---------------+---------------------------------------+
+| 1.1        | 2012-02-16    |  Debian 7 (2014.05-2018.05)           |
++------------+---------------+---------------------------------------+
+| 1.0        | 2011-04-04    |  Ubuntu 12.04 (py2)                   |
++------------+---------------+---------------------------------------+
+
+Conclusions
+~~~~~~~~~~~
+
+* smooth installation (without compilation) of python packages which contain C extensions, like numpy, matplotlib is possible only for systems release after 2016.03 and which have pip newer than 8.1.0. It applies to following systems: Ubuntu 16.04 and newer, Debian testing and unstable, all up-to-date rolling releases like archLinux and openSUSE tumbleweed.
+* Python 3.2 slowly starts to be deprecated (i.e. pip newer than 8.0.0 do not support it), but is still present in many systems, like: Ubuntu 12.04 and Debian 7.
+* Some systems ships very old pip (1.0 and 1.1), like Ubuntu 12.04 and Debian 7
+* Ubuntu 12.04 doesn't have pip for python 3.x in repository
+* CentOS doesn't ship Python 3.x and pip in its repositories.
 
 
-
-The tools
----------
+Tools
+-----
 
 Our solution is based on using docker containers to install python and pip on bare system
 and make a query for the version. We assume that you are familiar with docker, have it installed and your
